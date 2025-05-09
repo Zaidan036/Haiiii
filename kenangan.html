@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Kenangan Kita</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      position: relative;
+      background: url('hamparan.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    .scroll-top {
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  background-color: #d63384;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  display: none;
+  z-index: 1000;
+  transition: background-color 0.3s;
+}
+
+.scroll-top:hover {
+  background-color: #b0246a;
+}
+
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* transparan gelap */
+      z-index: -1;
+    }
+
+
+    header {
+      position: sticky;
+      top: 0;
+      background-color: #ff99cc;
+      padding: 15px;
+      text-align: center;
+      color: white;
+      font-size: 26px;
+      font-weight: bold;
+      z-index: 100;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    section {
+      height: 100vh;
+      padding: 60px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease;
+    }
+
+    section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    section img {
+  width: 80%;
+  max-width: 400px;
+  max-height: 250px;
+  height: auto;
+  border-radius: 15px;
+  object-fit: cover;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+    @media (max-width: 600px) {
+  section img {
+    width: 90%;
+    max-height: 200px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+}
+
+
+
+    /* Dot Navigation */
+    .dot-nav {
+      position: fixed;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 1000;
+    }
+
+    .dot-nav a {
+      width: 12px;
+      height: 12px;
+      background-color: #ffb6c1;
+      border-radius: 50%;
+      display: block;
+      transition: transform 0.3s;
+    }
+
+    .dot-nav a:hover,
+    .dot-nav a.active {
+      background-color: #d63384;
+      transform: scale(1.3);
+    }
+
+    /* WhatsApp Button */
+    .wa-btn {
+      background-color: #25d366;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .wa-btn:hover {
+      background-color: #1ebd5b;
+    }
+
+    audio {
+      margin: 30px auto;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <header>💖 Kenangan Kita 💖</header>
+
+  <!-- Navigasi Titik -->
+  <div class="dot-nav">
+    <a href="#m1"></a>
+    <a href="#m2"></a>
+    <a href="#m3"></a>
+    <a href="#m4"></a>
+    <a href="#m5"></a>
+    <a href="#final"></a>
+  </div>
+
+  <!-- Momen Sections -->
+  <section id="m1">
+    <img src="foto5.jpg" alt="Awal Bertemu">
+    <h2>Awal Bertemu</h2>
+    <p>Hari pertama aku melihatmu — sejak itu, aku tahu ada yang berbeda.</p>
+  </section>
+
+  <section id="m2">
+    <img src="foto4.jpg" alt="Kencan Pertama">
+    <h2>Kencan Pertama</h2>
+    <p>Kita menghabiskan waktu berdua dan dunia terasa lebih indah.</p>
+    <p>Kau bicara, dan suaramu jatuh perlahan ke hatiku,</p>
+    <p>seperti hujan pertama yang dinanti, membasahi tanah yang lama sunyi.</p>
+  </section>
+
+  <section id="m3">
+    <img src="foto7.jpg" alt="Hari Jadian">
+    <h2>Hari Jadian</h2>
+    <p>Kita jadian — tanggalnya kuingat pasti,</p>
+    <p>Aku kopi hitam, Kamu teh tarik, aku diam, kamu panik. Tapi entah kenapa, pas disatukan,
+      rasanya pas — kayak tahu tempe dalam piring harapan.</p>
+    <p>Saat kamu bilang "ya", dunia rasanya berhenti sejenak — hanya ada aku dan kamu.</p>
+  </section>
+
+  <section id="m4">
+    <img src="foto9.jpg" alt="Liburan Bareng">
+    <h2>Liburan Bareng</h2>
+    <p>Kita ke tempat baru, nyasar dikit, debat dikit, tapi ujungnya ketawa bareng — tetap romantis, dong.
+      Pokoknya Jalan-jalan bareng kamu tuh seru… walau kadang GPS kalah sama instingmu yang (kadang) salah. Haha</p>
+    <p>dan pada intinya Eksplor tempat baru bareng kamu: 30% foto-foto, 20% cari makan, 50% cari sinyal—100% bahagia.</p>
+  </section>
+
+  <section id="m5">
+    <img src="foto10.jpg" alt="Hari Spesialmu">
+    <h2>Hari Spesialmu</h2>
+    <p>Merayakan ulang tahunmu adalah salah satu kebahagiaan terbesarku. Kamu layak bahagia setiap hari.</p>
+  </section>
+
+  <!-- Final Section -->
+  <section id="final">
+    <h2>💌 Terima Kasih Telah Hadir</h2>
+    <p>Setiap detik bersamamu adalah hadiah. Aku mencintaimu, hari ini, esok, dan seterusnya.</p>
+    <audio id="musik" controls autoplay loop>
+      <source src="bungabadi.mp3" type="audio/mpeg">
+      Browser tidak mendukung audio.
+    </audio>
+    <a class="wa-btn" href="https://wa.me/6281286552548?text=Sayang%2C%20aku%20sudah%20lihat%20halaman%20kenangan%20ini%20dan%20aku%20terharu%20%F0%9F%92%97" target="_blank">Kirim Pesan di WhatsApp</a>
+  </section>
+
+  <!-- Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+  <script>
+  function sweetConfetti() {
+    const colors = ['#ffb6c1', '#ffc0cb', '#ffe4e1', '#f8bbd0', '#fce4ec'];
+    const shapes = ['circle', 'square'];
+
+    confetti({
+      particleCount: 80,
+      angle: 90,
+      spread: 90,
+      origin: { y: 0.6 },
+      colors: colors,
+      shapes: shapes,
+      scalar: 0.8,
+      ticks: 200,
+      gravity: 0.4,
+      });
+    }
+    </script>
+
+  <!-- Animasi muncul saat scroll -->
+  <script>
+    const sections = document.querySelectorAll("section");
+    const dots = document.querySelectorAll(".dot-nav a");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          const id = entry.target.id;
+          dots.forEach(dot => {
+            dot.classList.toggle("active", dot.getAttribute("href").includes(id));
+          });
+        }
+      });
+    }, { threshold: 0.5 });
+
+    sections.forEach(section => observer.observe(section));
+  </script>
+
+  <script>
+  document.addEventListener("click", function () {
+    const musik = document.getElementById("musik");
+    musik.play().catch((e) => {
+      console.log("Pemutaran diblokir:", e);
+    });
+  }, { once: true });
+  </script>
+
+  <!-- Tombol Scroll to Top -->
+  <button class="scroll-top" id="scrollTopBtn">↑</button>
+
+  <script>
+  const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+  window.addEventListener("scroll", () => {
+    scrollTopBtn.style.display = window.scrollY > 200 ? "block" : "none";
+  });
+
+  scrollTopBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  </script>
+
+
+
+</body>
+</html>

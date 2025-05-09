@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Halaman Terkunci</title>
+  <style>
+    #content { display: none; }
+  </style>
+</head>
+<body>
+  <div id="login">
+    <h2>Masukkan Password</h2>
+    <input type="password" id="password">
+    <button onclick="checkPassword()">Masuk</button>
+    <p id="error" style="color: red;"></p>
+  </div>
+
+  <div id="content">
+    <h1>Konten Rahasia</h1>
+    <p>Ini adalah konten yang muncul setelah password benar.</p>
+  </div>
+
+  <script>
+    const correctPassword = "rahasia123"; // Ganti dengan passwordmu
+
+    function checkPassword() {
+      const input = document.getElementById("password").value;
+      if (input === correctPassword) {
+        document.getElementById("login").style.display = "none";
+        document.getElementById("content").style.display = "block";
+      } else {
+        document.getElementById("error").textContent = "Password salah!";
+      }
+    }
+  </script>
+</body>
+</html>

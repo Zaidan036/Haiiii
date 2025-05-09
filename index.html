@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Untuk Kekasih Tercinta</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff0f5;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    #passwordPrompt {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: #fff0f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      z-index: 9999;
+    }
+
+    #passwordPrompt input {
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    #passwordPrompt button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #d63384;
+      border: none;
+      border-radius: 10px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #passwordPrompt p {
+      color: red;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
+    #mainContent {
+      display: none;
+    }
+
+    /* Tambahan dari kode asli kamu */
+    h1 {
+      margin-top: 20px;
+      color: #d63384;
+    }
+
+    #slideshow-container {
+      max-width: 500px;
+      margin: 30px auto 10px;
+      position: relative;
+      height: 320px;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    #slideshow-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+    }
+
+    #slideshow-container img.active {
+      opacity: 1;
+      z-index: 1;
+    }
+
+    .slideshow-buttons button {
+      background-color: #d63384;
+      border: none;
+      color: white;
+      padding: 8px 14px;
+      margin: 0 5px;
+      border-radius: 10px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .slideshow-buttons button:hover {
+      background-color: #c2185b;
+    }
+
+    #loveLetter {
+      background: #ffe6f0;
+      margin: 30px auto;
+      padding: 20px;
+      max-width: 600px;
+      border-radius: 15px;
+      font-size: 18px;
+      color: #660033;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .timer {
+      font-size: 20px;
+      color: #cc3366;
+      margin-top: 15px;
+    }
+
+    audio {
+      margin-top: 10px;
+    }
+
+    .sweet-button {
+      background: linear-gradient(135deg, #ff80ab, #ff4081);
+      border: none;
+      color: white;
+      padding: 14px 28px;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 30px;
+      margin: 30px auto 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 14px rgba(255, 105, 135, 0.4);
+      animation: pulse 2s infinite;
+    }
+
+    .sweet-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(255, 64, 129, 0.6);
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(255, 105, 135, 0.5); }
+      50% { box-shadow: 0 0 0 12px rgba(255, 105, 135, 0); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Password Prompt -->
+<div id="passwordPrompt">
+  <h2>Masukkan Password Cinta 💖</h2>
+  <input type="password" id="passwordInput" placeholder="Password...">
+  <button onclick="checkPassword()">Masuk</button>
+  <p id="errorMsg"></p>
+</div>
+
+<!-- Konten Asli -->
+<div id="mainContent">
+  <h1>❤️ Untuk Cintaku Tersayang ❤️</h1>
+
+  <!-- Slideshow -->
+  <div id="slideshow-container">
+    <img class="slide active" src="foto1.jpg" alt="Foto 1">
+    <img class="slide" src="foto2.jpg" alt="Foto 2">
+    <img class="slide" src="foto3.jpg" alt="Foto 3">
+  </div>
+
+  <!-- Surat Cinta -->
+  <div id="loveLetter">
+    Sayangku,  
+    <br><br>
+    Terima kasih sudah menjadi bagian dari hidupku. Bersamamu aku merasa utuh dan bahagia. Setiap detik bersamamu adalah anugerah yang tak ternilai.
+    <br><br>
+    Aku mencintaimu hari ini, esok, dan selamanya 💖
+  </div>
+
+  <!-- Hari Jadian -->
+  <div class="timer" id="hariJadian"></div>
+
+  <br><br>
+  <a href="kenangan.html" class="sweet-button">💌 Next Sayang</a>
+</div>
+
+<!-- Script -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+<script>
+  const correctPassword = "14022023";
+
+  function checkPassword() {
+    const input = document.getElementById("passwordInput").value;
+    const error = document.getElementById("errorMsg");
+    if (input === correctPassword) {
+      document.getElementById("passwordPrompt").style.display = "none";
+      document.getElementById("mainContent").style.display = "block";
+    } else {
+      error.textContent = "Password salah! 😢";
+    }
+  }
+
+  // Slideshow
+  const slides = document.querySelectorAll(".slide");
+  let currentSlide = 0;
+
+  function showSlide(index) {
+    slides.forEach(slide => slide.classList.remove("active"));
+    slides[index].classList.add("active");
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }
+
+  setInterval(nextSlide, 7000);
+
+  // Hari Jadian
+  const jadianDate = new Date("2023-02-14");
+  const today = new Date();
+  const diff = Math.floor((today - jadianDate) / (1000 * 60 * 60 * 24));
+  document.getElementById("hariJadian").innerText = `Kita sudah bersama selama ${diff} hari 💘`;
+
+  // Confetti
+  function sweetConfetti() {
+    const colors = ['#ffb6c1', '#ffc0cb', '#ffe4e1', '#f8bbd0', '#fce4ec'];
+    const shapes = ['circle', 'square'];
+
+    confetti({
+      particleCount: 80,
+      angle: 90,
+      spread: 90,
+      origin: { y: 0.6 },
+      colors: colors,
+      shapes: shapes,
+      scalar: 0.8,
+      ticks: 200,
+      gravity: 0.4,
+    });
+  }
+
+  setInterval(sweetConfetti, 6000);
+</script>
+</body>
+</html>
